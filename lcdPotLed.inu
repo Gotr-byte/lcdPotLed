@@ -1,0 +1,32 @@
+#include<LiquidCrystal.h>
+
+const int analogInputPin = A0;  // Analog input pin that the voltage is connected to
+const int pwmOutputPin = 9; 
+float inputVoltage = 0.0;       // Variable to hold the input voltage
+
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+void setup()
+{
+ lcd.begin(16, 2); 
+}
+
+void loop()
+{
+  // Read the input on analog pin 0:
+  int sensorValue = analogRead(analogInputPin);
+  // Generate output value to analog output with sensor
+  int outputValue = sensorValue / 4;
+
+  // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
+  inputVoltage = sensorValue * (5.0 / 1023.0);
+
+  // Print out the value in volts:
+  lcd.setCursor(0,0);
+  lcd.print("Voltage = " );
+  lcd.print(inputVoltage);
+  lcd.println(" V");
+  analogWrite(pwmOutputPin, outputValue);
+
+  // Delay for a bit to make the output easier to read:
+  delay(500);
+  }
