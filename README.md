@@ -3,6 +3,8 @@ The potentiometer is 10k.
 
 The porgramme read voltage value through analog input a(0), writes analog output to 9. We can notice the LED get dimmer and brighter depending on the output.
 
+In the branch you can sen values to serial monitor and change the brightness of the led.
+
 Sources:
 
 https://www.youtube.com/watch?v=X8dHbdhnGKY&list=PLV6cmKvnKRs5geApVORPW79U6s3wpa0Ht&index=3
